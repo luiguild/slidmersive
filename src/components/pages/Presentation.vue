@@ -1,5 +1,5 @@
 <template lang="pug">
-router-view(name="content")
+Scene
 </template>
 
 <script>
@@ -7,6 +7,8 @@ router-view(name="content")
 //   mapGetters,
 //   mapActions
 // } from 'vuex'
+
+import { Scene } from '@/components/organisms'
 
 export default {
   props: {
@@ -26,12 +28,14 @@ export default {
   mounted: function () {},
   updated: function () {},
   destroyed: function () {},
-  components: {},
+  components: {
+    Scene
+  },
   computed: {
-    //   ...mapGetters([])
+  //   ...mapGetters([])
   },
   methods: {
-    //   ...mapActions([])
+  //   ...mapActions([])
   },
   filters: {},
   watch: {}
@@ -39,5 +43,5 @@ export default {
 </script>
 
 <style lang="sass">
-@import ../assets/sass/Slidemersive
+// @import ../../static/sass/imports/_extend
 </style>

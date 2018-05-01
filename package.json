@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "aframe": "^0.8.2",
+    "aframe-text-geometry-component": "^0.5.1",
     "axios": "^0.18.0",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",

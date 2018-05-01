@@ -1,7 +1,8 @@
 // import Vue from 'vue'
 
 const getters = {
-  // getLinks: state => state.links
+  getPrimaryFontStyle: state => state.fontStyle.primary,
+  getsecondaryFontStyle: state => state.fontStyle.secondary
 }
 
 export default getters
