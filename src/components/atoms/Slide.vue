@@ -1,13 +1,18 @@
 <template lang="pug">
   a-entity(
-    position="0 -4 0",
-    rotation="30 0 0"
+    position="0 6 -9",
+    :rotation="cameraRotation",
+    height="9",
+    width="16"
+    material="color: #000; opacity: 0;"
+    geometry="primitive: plane; height: 9; width: 16;"
   )
     a-plane(
       color="#CCC",
       height="9",
       width="16",
-      position="0 5 -10",
+      position="0 0 0",
+      rotation="0 0 0",
       opacity="0.6"
     )
     a-entity#rightArrow(
@@ -17,7 +22,7 @@
         height: 0.1;
         size: 1;
       `,
-      position="6 4 -8",
+      position="6.6 -1.1 2",
       material="color: white;"
     )
 
@@ -28,7 +33,7 @@
         height: 0.1;
         size: 1;
       `,
-      position="-7.4 4 -8",
+      position="-8 -1.1 2",
       material="color: white;"
     )
 
@@ -39,18 +44,18 @@
         height: 0.1;
         size: 1.4;
       `,
-      position="-5.8 4.5 -9",
+      position="-5.8 -0.8 1",
       material="color: white;"
     )
 
     a-entity#subTitle(
       text-geometry=`
-        value: Realidade Virtual já é Realidade;
+        value: Realidade Virtual já é realidade;
         font: #RobotoRegularFont;
         height: 0.05;
         size: 0.6;
       `,
-      position="-5.8 3.5 -9",
+      position="-5.8 -1.7 1",
       material="color: white;"
     )
 </template>
@@ -83,18 +88,26 @@ export default {
   computed: {
     ...mapGetters('aframe', [
       'getCameraInfo'
-    ])
+    ]),
+    cameraRotation () {
+      if (this.getCameraInfo.position) {
+        const rotation = this.getCameraInfo.rotation
+        let x =
+          rotation.x >= 1.6
+            ? rotation.x
+            : 1.6
+        let y = rotation.y * -1
+        let z = rotation.z || 0
+
+        return `${x} ${y} ${z}`
+      }
+    }
   },
   methods: {
     ...mapActions([])
   },
   filters: {},
-  watch: {
-    getCameraInfo (change) {
-      console.log('position', change.position.x, change.position.y, change.position.z)
-      console.log('rotation', change.rotation.x, change.rotation.y, change.rotation.z)
-    }
-  }
+  watch: {}
 }
 </script>
 

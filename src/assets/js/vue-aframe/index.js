@@ -2,7 +2,7 @@ import Vue from 'vue'
 import AFRAME from 'aframe'
 import textGeometryComponent from 'aframe-text-geometry-component'
 
-require('./watcherPosition')
+require('./watcher')
 
 Vue.config.ignoredElements = [
   'a-scene',

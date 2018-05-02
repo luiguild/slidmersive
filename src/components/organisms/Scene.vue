@@ -22,7 +22,7 @@ a-scene(fog='color: #41b883; near: 0; far: 65;')
 
   Scenario
     Slide
-  a-camera(watcher-position)
+  a-camera(watcher="type: transmitter; id: 12345;")
 </template>
 
 <script>

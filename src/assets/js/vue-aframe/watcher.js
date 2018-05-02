@@ -10,12 +10,22 @@ let rX
 let rY
 let rZ
 
-window.AFRAME.registerComponent('watcher-position', {
+window.AFRAME.registerComponent('watcher', {
   $store: store,
   ...mapActions('aframe', [
     'setCameraPosition',
     'setCameraRotation'
   ]),
+  schema: {
+    type: {
+      type: 'string',
+      default: 'transmitter'
+    },
+    id: {
+      type: 'string',
+      default: Date.now()
+    }
+  },
   tick () {
     const camera = this.el.sceneEl.camera.el
     const cameraPosition = camera.getAttribute('position')
@@ -57,5 +67,7 @@ window.AFRAME.registerComponent('watcher-position', {
       }
     }
   },
-  init () {}
+  init () {
+    console.log(this.schema.type, this.schema.id)
+  }
 })

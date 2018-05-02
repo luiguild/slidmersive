@@ -9,15 +9,16 @@ const router = new Router({
   mode: 'hash',
   routes: [
     {
-      path: '/presentation',
+      path: '/presentation/slides/:id',
       name: 'Presentation',
       components: {
         content: load('pages/Presentation')
-      }
+      },
+      props: true
     },
     {
       path: '*',
-      redirect: '/presentation'
+      redirect: '/presentation/slides/0'
     }
   ]
 })
