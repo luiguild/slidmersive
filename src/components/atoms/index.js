@@ -1,5 +1,9 @@
-import Slide from './Slide'
+import SlideBase from './SlideBase'
+import Welcome from './Welcome'
+import WhoAmI from './WhoAmI'
 
 export {
-  Slide
+  SlideBase,
+  Welcome,
+  WhoAmI
 }

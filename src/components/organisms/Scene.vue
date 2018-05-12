@@ -22,7 +22,12 @@ a-scene(fog='color: #41b883; near: 0; far: 65;')
 
   Scenario
     Slide
+
+  a-entity(hand-controls="left")
+  a-entity(hand-controls="right")
+
   a-camera(watcher="type: transmitter; id: 12345;")
+    a-cursor
 </template>
 
 <script>
@@ -31,8 +36,7 @@ a-scene(fog='color: #41b883; near: 0; far: 65;')
 //   mapActions
 // } from 'vuex'
 
-import { Scenario } from '@/components/molecules'
-import { Slide } from '@/components/atoms'
+import { Scenario, Slide } from '@/components/molecules'
 
 export default {
   props: {

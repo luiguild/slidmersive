@@ -2,8 +2,12 @@
 // import axios from '@/axios'
 
 const actions = {
-  // setAudioStatus: ({ commit }, value) =>
-  //   commit('playerStatus', value)
+  getSlides: ({ commit }, value) =>
+    commit('allSlides', value),
+  setNextSlides: ({ commit }) =>
+    commit('nextSlide'),
+  setPreviousSlides: ({ commit }) =>
+    commit('previousSlide')
 }
 
 export default actions

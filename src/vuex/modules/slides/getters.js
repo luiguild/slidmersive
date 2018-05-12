@@ -1,8 +1,8 @@
 // import Vue from 'vue'
 
 const getters = {
-  getPrimaryFontStyle: state => state.fontStyle.primary,
-  getsecondaryFontStyle: state => state.fontStyle.secondary
+  getActualSlide: state => state.slides.actual,
+  getAllSlides: state => state.slides.all
 }
 
 export default getters
