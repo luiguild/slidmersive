@@ -3,10 +3,10 @@ Scene
 </template>
 
 <script>
-// import {
-//   mapGetters,
-//   mapActions
-// } from 'vuex'
+import {
+  mapGetters,
+  mapActions
+} from 'vuex'
 
 import { Scene } from '@/components/organisms'
 
@@ -24,21 +24,31 @@ export default {
     // }
   },
   data: () => ({}),
-  created: function () {},
-  mounted: function () {},
-  updated: function () {},
-  destroyed: function () {},
+  created () {
+    return this.getSlides()
+      .then(() => this.setActual(this.$route.params.id))
+  },
+  mounted () {},
+  updated () {},
+  destroyed () {},
   components: {
     Scene
   },
   computed: {
-  //   ...mapGetters([])
+    ...mapGetters([])
   },
   methods: {
-  //   ...mapActions([])
+    ...mapActions('slides', [
+      'setActual',
+      'getSlides'
+    ])
   },
   filters: {},
-  watch: {}
+  watch: {
+    '$route' (route) {
+      this.setActual(route.params.id)
+    }
+  }
 }
 </script>
 

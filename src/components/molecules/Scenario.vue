@@ -3,7 +3,6 @@ a-entity(
   position="0 0 0"
   rotation="0 0 0"
 )
-  // Environment
   a-entity#sky(
     geometry=`
       primitive: sphere;

@@ -26,8 +26,36 @@ a-scene(fog='color: #41b883; near: 0; far: 65;')
   a-entity(hand-controls="left")
   a-entity(hand-controls="right")
 
-  a-camera(watcher="type: transmitter; id: 12345;")
-    a-cursor
+  a-camera(
+    watcher,
+    look-controls,
+    wasd-controls
+  )
+    a-entity(
+      cursor="fuse: true;",
+      raycaster="far: 2000; interval: 1000; objects: .clickable",
+      position="0 0 -1",
+      geometry="primitive: ring; radiusInner: 0.005; radiusOuter: 0.015;",
+      material="color: #35495e; shader: flat"
+    )
+      a-animation(
+        begin="click",
+        easing="ease-in",
+        attribute="scale",
+        dur="50",
+        fill="forwards",
+        from="0.1 0.1 0.1",
+        to="1 1 1",
+      )
+      a-animation(
+        begin="cursor-fusing",
+        easing="ease-in",
+        attribute="scale",
+        dur="1500",
+        fill="backwards",
+        from="1 1 1",
+        to="0.1 0.1 0.1",
+      )
 </template>
 
 <script>

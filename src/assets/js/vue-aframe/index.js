@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import AFRAME from 'aframe'
 import textGeometryComponent from 'aframe-text-geometry-component'
+import aframeAnimationComponent from 'aframe-animation-component'
 
 require('./watcher')
 
@@ -46,6 +47,7 @@ const VueAframe = {
   install (Vue, options) {
     Vue.prototype.$AFRAME = AFRAME
     Vue.prototype.$textGeometryComponent = textGeometryComponent
+    Vue.prototype.$aframeAnimationComponent = aframeAnimationComponent
   }
 }
 

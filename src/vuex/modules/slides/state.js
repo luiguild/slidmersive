@@ -2,31 +2,9 @@
 
 const state = {
   slides: {
-    actual: 0,
-    all: [
-      'as',
-      'as',
-      'as',
-      'as',
-      'as',
-      'as',
-      'as',
-      'as',
-      'as',
-      'as',
-      'as',
-      'as',
-      'as',
-      'as',
-      'as',
-      'as',
-      'as',
-      'as',
-      'as',
-      'as',
-      'as',
-      'as'
-    ]
+    actual: {},
+    actualIndex: 0,
+    all: []
   }
 }
 

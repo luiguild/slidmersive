@@ -9,7 +9,6 @@ Vue.config.productionTip = false
 
 Vue.use(VueAframe)
 
-/* eslint-disable no-new */
 new Vue({
   router,
   store,

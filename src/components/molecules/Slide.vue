@@ -1,15 +1,12 @@
 <template lang="pug">
   a-entity(
-    billboard,
-    position="0 6 -9",
-    :rotation="cameraRotation",
-    height="9",
-    width="16"
+    :position="getPosition",
+    :rotation="getCameraRotation",
     material="color: #000; opacity: 0;"
-    geometry="primitive: plane; height: 9; width: 16;"
+    :geometry="getGeometry"
   )
     SlideBase
-      a-entity(:is="slideComponent")
+      a-entity(:is="getContainer")
 </template>
 
 <script>
@@ -37,15 +34,11 @@ export default {
     //   }
     // }
   },
-  data: () => ({
-    slideComponent: ''
-  }),
-  created: function () {},
-  mounted: function () {
-    this.slideComponent = load('atoms/Welcome')
-  },
-  updated: function () {},
-  destroyed: function () {},
+  data: () => ({}),
+  created () {},
+  mounted () {},
+  updated () {},
+  destroyed () {},
   components: {
     SlideBase
   },
@@ -53,7 +46,10 @@ export default {
     ...mapGetters('aframe', [
       'getCameraInfo'
     ]),
-    cameraRotation () {
+    ...mapGetters('slides', [
+      'getActualSlide'
+    ]),
+    getCameraRotation () {
       if (this.getCameraInfo.position) {
         const rotation = this.getCameraInfo.rotation
         const x =
@@ -64,6 +60,24 @@ export default {
         const z = rotation.z || 0
 
         return `${x} ${y} ${z}`
+      }
+    },
+    getPosition () {
+      if (this.getActualSlide.style) {
+        return this.getActualSlide.style.position
+      }
+    },
+    getGeometry () {
+      if (this.getActualSlide.style) {
+        const height = this.getActualSlide.style.height
+        const width = this.getActualSlide.style.width
+
+        return `primitive: plane; height: ${height}; width: ${width};`
+      }
+    },
+    getContainer () {
+      if (this.getActualSlide.component) {
+        return load(`molecules/${this.getActualSlide.component}`)
       }
     }
   },

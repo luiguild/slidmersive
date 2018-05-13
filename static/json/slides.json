@@ -3,47 +3,21 @@
     {
       "component": "Welcome",
       "style": {
-        "position": "0 0 0",
+        "position": "0 6 -11",
         "color": "#CCC",
         "height": "9",
         "width": "16",
         "opacity": "0.6"
-      },
-      "content": {
-        "title": "VR com Vue!",
-        "subTitle": "Realidade Virtual já é realidade",
-        "text": "",
-        "style": {
-          "font": "",
-          "material": "",
-          "position": "0 0 0",
-          "rotation": "0 0 0",
-          "height": "",
-          "size": ""
-        }
       }
     },
     {
       "component": "WhoAmI",
       "style": {
-        "position": "0 0 0",
+        "position": "0 6 -11",
         "color": "#CCC",
         "height": "9",
         "width": "16",
         "opacity": "0.6"
-      },
-      "content": {
-        "title": "Vue PORRA!",
-        "subTitle": "TCHAN :P",
-        "text": "",
-        "style": {
-          "font": "",
-          "material": "",
-          "position": "0 0 0",
-          "rotation": "0 0 0",
-          "height": "",
-          "size": ""
-        }
       }
     }
   ]
