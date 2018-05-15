@@ -3,10 +3,10 @@ router-view(name="content")
 </template>
 
 <script>
-// import {
-//   mapGetters,
-//   mapActions
-// } from 'vuex'
+import {
+  // mapGetters,
+  mapActions
+} from 'vuex'
 
 export default {
   props: {
@@ -22,19 +22,41 @@ export default {
     // }
   },
   data: () => ({}),
-  created: function () {},
-  mounted: function () {},
-  updated: function () {},
-  destroyed: function () {},
+  created () {
+    document.addEventListener('keyup', event => this.keyControls(event))
+  },
+  mounted () {},
+  updated () {},
+  beforeDestroy () {
+    document.removeEventListener('keyup', event => this.keyControls(event))
+  },
+  destroyed () {},
   components: {},
   computed: {
     //   ...mapGetters([])
   },
   methods: {
-    //   ...mapActions([])
+    ...mapActions('slides', [
+      'setActual',
+      'getSlides',
+      'setNextSlides',
+      'setPreviousSlides'
+    ]),
+    keyControls (event) {
+      if (event.keyCode === 190) {
+        return this.setNextSlides()
+      } else if (event.keyCode === 188) {
+        return this.setPreviousSlides()
+      }
+    }
   },
   filters: {},
-  watch: {}
+  watch: {
+    '$route' (route) {
+      console.log('WATCH')
+      this.setActual(route.params.id)
+    }
+  }
 }
 </script>
 

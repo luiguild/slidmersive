@@ -12,14 +12,13 @@
     a-entity#rightArrow
       a-entity.clickable(
         @click="nextSlide",
-        @keyup.right="nextSlide",
         text-geometry=`
           value: ;
           font: #fontAwesomeSolid;
           height: 0.1;
           size: 1;
         `,
-        position="6.6 -1.1 2",
+        position="6.8 -0.8 2",
         :material="getMaterial.right"
       )
       a-animation(
@@ -37,14 +36,13 @@
     a-entity#leftArrow
       a-entity.clickable(
         @click="previousSlide",
-        @keyup.left="previousSlide",
         text-geometry=`
           value: ;
           font: #fontAwesomeSolid;
           height: 0.1;
           size: 1;
         `,
-        position="-8 -1.1 2",
+        position="-8.2 -0.8 2",
         :material="getMaterial.left"
       )
       a-animation(
@@ -75,23 +73,23 @@ export default {
       'getActualSituation'
     ]),
     getOpacity () {
-      if (this.getActualSlide.style) {
+      if (this.getActualSlide) {
         return this.getActualSlide.style.opacity
       }
     },
     getHeight () {
-      if (this.getActualSlide.style) {
+      if (this.getActualSlide) {
         return this.getActualSlide.style.height
       }
     },
     getWidth () {
-      if (this.getActualSlide.style) {
+      if (this.getActualSlide) {
         return this.getActualSlide.style.width
       }
     },
     getMaterial () {
       const materialBase = 'color: white;'
-      console.log(this.getActualSituation)
+
       if (this.getActualSituation === 'first') {
         return {
           left: `${materialBase} opacity: 0.4;`,
@@ -122,11 +120,7 @@ export default {
       this.setPreviousSlides()
     }
   },
-  watch: {
-    getActualSlide (change) {
-      console.log('mudou', change)
-    }
-  }
+  watch: {}
 }
 </script>
 

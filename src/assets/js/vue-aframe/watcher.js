@@ -3,71 +3,39 @@ import {
   mapActions
 } from 'vuex'
 
-let pX
-let pY
-let pZ
-let rX
-let rY
-let rZ
-
-window.AFRAME.registerComponent('watcher', {
+window.AFRAME.registerComponent('vuex-watcher', {
+  element: {},
+  oldValue: {},
+  newValue: {},
   $store: store,
-  ...mapActions('aframe', [
-    'setCameraPosition',
-    'setCameraRotation'
-  ]),
   schema: {
-    type: {
-      type: 'string',
-      default: 'transmitter'
+    attributes: {
+      type: 'array'
     },
-    id: {
-      type: 'string',
-      default: Date.now()
+    actions: {
+      type: 'array'
     }
   },
   tick () {
-    const camera = this.el.sceneEl.camera.el
-    const cameraPosition = camera.getAttribute('position')
-    const cameraRotation = camera.getAttribute('rotation')
+    this.data.attributes.forEach((attr, indx) => {
+      const value = this.element.getAttribute(attr)
+      this.newValue[attr] = JSON.stringify(value)
 
-    if (cameraPosition) {
-      if (pX !== cameraPosition.x ||
-          pY !== cameraPosition.y ||
-          pZ !== cameraPosition.z) {
-        pX = cameraPosition.x
-        pY = cameraPosition.y
-        pZ = cameraPosition.z
+      if (this.newValue[attr] !== this.oldValue[attr]) {
+        const action = this.data.actions[indx]
 
-        this.setCameraPosition({
-          position: {
-            x: pX,
-            y: pY,
-            z: pZ
-          }
-        })
+        this.oldValue[attr] = this.newValue[attr]
+
+        if (action) {
+          this[action]({
+            [attr]: value
+          })
+        }
       }
-    }
-
-    if (cameraRotation) {
-      if (rX !== cameraRotation.x ||
-          rY !== cameraRotation.y ||
-          rZ !== cameraRotation.z) {
-        rX = cameraRotation.x
-        rY = cameraRotation.y
-        rZ = cameraRotation.z
-
-        this.setCameraRotation({
-          rotation: {
-            x: rX,
-            y: rY,
-            z: rZ
-          }
-        })
-      }
-    }
+    })
   },
   init () {
-    console.log(this.schema.type, this.schema.id)
+    this.element = this.el.sceneEl.camera.el
+    Object.assign(this, mapActions('aframe', this.data.actions))
   }
 })

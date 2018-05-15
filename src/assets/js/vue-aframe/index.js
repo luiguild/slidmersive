@@ -2,8 +2,9 @@ import Vue from 'vue'
 import AFRAME from 'aframe'
 import textGeometryComponent from 'aframe-text-geometry-component'
 import aframeAnimationComponent from 'aframe-animation-component'
-
-require('./watcher')
+import aframeLerpComponent from 'aframe-lerp-component'
+import aframeEnvironmentComponent from 'aframe-environment-component'
+import * as aframeWatcher from './watcher'
 
 Vue.config.ignoredElements = [
   'a-scene',
@@ -48,6 +49,9 @@ const VueAframe = {
     Vue.prototype.$AFRAME = AFRAME
     Vue.prototype.$textGeometryComponent = textGeometryComponent
     Vue.prototype.$aframeAnimationComponent = aframeAnimationComponent
+    Vue.prototype.$aframeLerpComponent = aframeLerpComponent
+    Vue.prototype.$aframeEnvironmentComponent = aframeEnvironmentComponent
+    Vue.prototype.$aframeWatcher = aframeWatcher
   }
 }
 

@@ -2,8 +2,15 @@
   "slides": [
     {
       "component": "Welcome",
+      "scenario": {
+        "preset": "goaland",
+        "skyType": "gradient",
+        "skyColor": "#35495e",
+        "horizonColor": "#41b883",
+        "grid": "1x1"
+      },
       "style": {
-        "position": "0 6 -11",
+        "position": "0 0 12",
         "color": "#CCC",
         "height": "9",
         "width": "16",
@@ -12,8 +19,20 @@
     },
     {
       "component": "WhoAmI",
+      "scenario": "",
       "style": {
-        "position": "0 6 -11",
+        "position": "0 0 12",
+        "color": "#CCC",
+        "height": "9",
+        "width": "16",
+        "opacity": "0.6"
+      }
+    },
+    {
+      "component": "WhoAmI",
+      "scenario": "",
+      "style": {
+        "position": "20 20 0",
         "color": "#CCC",
         "height": "9",
         "width": "16",

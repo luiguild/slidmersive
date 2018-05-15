@@ -26,10 +26,19 @@ export default {
   data: () => ({}),
   created () {
     return this.getSlides()
-      .then(() => this.setActual(this.$route.params.id))
+      .then(() => {
+        return this.setActual(this.$route.params.id)
+      })
   },
   mounted () {},
-  updated () {},
+  // beforeRouteEnter (to, from, next) {
+  //
+  // },
+  beforeRouteUpdate (to, from, next) {
+    console.log('WATCH BEFORE UPDATE')
+  },
+  updated () {
+  },
   destroyed () {},
   components: {
     Scene
@@ -44,11 +53,7 @@ export default {
     ])
   },
   filters: {},
-  watch: {
-    '$route' (route) {
-      this.setActual(route.params.id)
-    }
-  }
+  watch: {}
 }
 </script>
 

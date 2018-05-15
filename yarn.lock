@@ -139,6 +139,16 @@ aframe-animation-component@^4.2.0:
   dependencies:
     animejs "2.2.0"
 
+aframe-environment-component@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/aframe-environment-component/-/aframe-environment-component-1.0.0.tgz#dde6a8734dc7777d9c4a00b5bab25f877e8b3b37"
+
+aframe-lerp-component@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/aframe-lerp-component/-/aframe-lerp-component-1.1.0.tgz#dc8c12c53698770c30f25eef8873e34a4e79c765"
+  dependencies:
+    almost-equal "^1.1.0"
+
 aframe-text-geometry-component@^0.5.1:
   version "0.5.1"
   resolved "https://registry.yarnpkg.com/aframe-text-geometry-component/-/aframe-text-geometry-component-0.5.1.tgz#c5024e182aa96f548cd7fea6e53dd47b7f6f753a"
@@ -195,6 +205,10 @@ align-text@^0.1.1, align-text@^0.1.3:
     kind-of "^3.0.2"
     longest "^1.0.1"
     repeat-string "^1.5.2"
+
+almost-equal@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/almost-equal/-/almost-equal-1.1.0.tgz#f851c631138757994276aa2efbe8dfa3066cccdd"
 
 alphanum-sort@^1.0.1, alphanum-sort@^1.0.2:
   version "1.0.2"

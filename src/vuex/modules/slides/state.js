@@ -2,7 +2,7 @@
 
 const state = {
   slides: {
-    actual: {},
+    actual: undefined,
     actualIndex: 0,
     all: []
   }
