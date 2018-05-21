@@ -16,7 +16,8 @@
 
 <script>
 import {
-  mapGetters
+  mapGetters,
+  mapActions
 } from 'vuex'
 
 import {
@@ -44,14 +45,12 @@ export default {
     nextPosition: '',
     animationTime: 1000
   }),
-  created () {},
-  mounted () {
-    console.log('aahasouhdouashdosuahdoasuhda', this.getActualSlide)
+  created () {
     if (this.getActualSlide) {
       this.setPosition(this.getActualSlide.style.position)
     }
-    // this.getPosition()
   },
+  mounted () {},
   updated () {},
   destroyed () {},
   components: {
@@ -102,14 +101,12 @@ export default {
       if (this.getActualSlide) {
         return load(`molecules/${this.getActualSlide.component}`)
       }
-    },
-    getPosition () {
-      if (this.getActualSlide) {
-        return console.log('OIASDOASIHDOIASHDOISAHDIOPUASHDOPISAHD', this.getActualSlide)
-      }
     }
   },
   methods: {
+    ...mapActions('slides', [
+      'setActual'
+    ]),
     setPosition (newPosition) {
       if (this.actualPosition === '') {
         this.actualPosition = newPosition
@@ -128,7 +125,13 @@ export default {
     }
   },
   filters: {},
-  watch: {}
+  watch: {
+    getActualSlide (slide) {
+      if (slide) {
+        return this.setPosition(slide.style.position)
+      }
+    }
+  }
 }
 </script>
 

@@ -37,8 +37,6 @@ export default {
   },
   methods: {
     ...mapActions('slides', [
-      'setActual',
-      'getSlides',
       'setNextSlides',
       'setPreviousSlides'
     ]),
@@ -51,12 +49,7 @@ export default {
     }
   },
   filters: {},
-  watch: {
-    '$route' (route) {
-      console.log('WATCH')
-      this.setActual(route.params.id)
-    }
-  }
+  watch: {}
 }
 </script>
 

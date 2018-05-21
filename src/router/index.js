@@ -1,9 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import store from '@/vuex'
 
 Vue.use(Router)
 
-const load = component => () => import(`@/components/${component}.vue`)
+const load = component => () =>
+  import(`@/components/${component}.vue`)
 
 const router = new Router({
   mode: 'hash',
@@ -14,7 +16,13 @@ const router = new Router({
       components: {
         content: load('pages/Presentation')
       },
-      props: true
+      props: true,
+      beforeEnter (to, from, next, state = store) {
+        return state.dispatch('slides/getSlides')
+          .then(() => next(
+            state.dispatch('slides/setActual', to.params.id))
+          )
+      }
     },
     {
       path: '*',

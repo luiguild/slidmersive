@@ -1,8 +1,14 @@
 <template lang="pug">
   a-entity
+    a-circle(
+      src="#luigui",
+      position="0 3.5 2",
+      radius="2"
+    )
+
     a-entity#title(
       text-geometry=`
-        value: TCHAN!;
+        value: Luigui Delyer;
         font: #permanentMarkerRegularFont;
         height: 0.1;
         size: 1.4;

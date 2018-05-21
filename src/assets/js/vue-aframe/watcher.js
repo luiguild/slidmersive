@@ -16,6 +16,10 @@ window.AFRAME.registerComponent('vuex-watcher', {
       type: 'array'
     }
   },
+  init () {
+    this.element = this.el.sceneEl.camera.el
+    Object.assign(this, mapActions('aframe', this.data.actions))
+  },
   tick () {
     this.data.attributes.forEach((attr, indx) => {
       const value = this.element.getAttribute(attr)
@@ -33,9 +37,5 @@ window.AFRAME.registerComponent('vuex-watcher', {
         }
       }
     })
-  },
-  init () {
-    this.element = this.el.sceneEl.camera.el
-    Object.assign(this, mapActions('aframe', this.data.actions))
   }
 })

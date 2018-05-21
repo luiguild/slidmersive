@@ -5,13 +5,13 @@
       "scenario": {
         "preset": "goaland",
         "skyType": "gradient",
-        "skyColor": "#35495e",
-        "horizonColor": "#41b883",
+        "skyColor": "#71222D",
+        "horizonColor": "#FB8494",
         "grid": "1x1"
       },
       "style": {
-        "position": "0 0 12",
-        "color": "#CCC",
+        "position": "0 0 5",
+        "color": "#FFF",
         "height": "9",
         "width": "16",
         "opacity": "0.6"
@@ -19,9 +19,15 @@
     },
     {
       "component": "WhoAmI",
-      "scenario": "",
+      "scenario": {
+        "preset": "forest",
+        "skyType": "gradient",
+        "skyColor": "#2770A2",
+        "horizonColor": "#56BBFF",
+        "grid": "1x1"
+      },
       "style": {
-        "position": "0 0 12",
+        "position": "0 0 5",
         "color": "#CCC",
         "height": "9",
         "width": "16",

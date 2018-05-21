@@ -14,7 +14,11 @@ export default {
     'height',
     'size',
     'position',
-    'material'
+    'material',
+    'bevelEnabled',
+    'bevelSize',
+    'bevelThickness',
+    'curveSegments'
   ],
   computed: {
     textGeometry () {
@@ -22,8 +26,12 @@ export default {
       const font = `font: ${this.font};`
       const height = `height: ${this.height};`
       const size = `size: ${this.size};`
+      const bevelEnabled = `bevelEnabled: ${this.bevelEnabled};`
+      const bevelSize = `bevelSize: ${this.bevelSize};`
+      const bevelThickness = `bevelThickness: ${this.bevelThickness};`
+      const curveSegments = `curveSegments: ${this.curveSegments};`
 
-      return `${value} ${font} ${height} ${size}`
+      return `${value} ${font} ${height} ${size} ${bevelEnabled} ${bevelSize} ${bevelThickness} ${curveSegments}`
     }
   }
 }

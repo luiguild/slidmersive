@@ -24,19 +24,8 @@ export default {
     // }
   },
   data: () => ({}),
-  created () {
-    return this.getSlides()
-      .then(() => {
-        return this.setActual(this.$route.params.id)
-      })
-  },
+  created () {},
   mounted () {},
-  // beforeRouteEnter (to, from, next) {
-  //
-  // },
-  beforeRouteUpdate (to, from, next) {
-    console.log('WATCH BEFORE UPDATE')
-  },
   updated () {
   },
   destroyed () {},
@@ -48,12 +37,15 @@ export default {
   },
   methods: {
     ...mapActions('slides', [
-      'setActual',
-      'getSlides'
+      'setActual'
     ])
   },
   filters: {},
-  watch: {}
+  watch: {
+    '$route' (route) {
+      this.setActual(route.params.id)
+    }
+  }
 }
 </script>
 

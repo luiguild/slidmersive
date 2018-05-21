@@ -4,6 +4,7 @@ import textGeometryComponent from 'aframe-text-geometry-component'
 import aframeAnimationComponent from 'aframe-animation-component'
 import aframeLerpComponent from 'aframe-lerp-component'
 import aframeEnvironmentComponent from 'aframe-environment-component'
+import aframeFpsCounterComponent from 'aframe-fps-counter-component'
 import * as aframeWatcher from './watcher'
 
 Vue.config.ignoredElements = [
@@ -50,6 +51,7 @@ const VueAframe = {
     Vue.prototype.$textGeometryComponent = textGeometryComponent
     Vue.prototype.$aframeAnimationComponent = aframeAnimationComponent
     Vue.prototype.$aframeLerpComponent = aframeLerpComponent
+    Vue.prototype.$aframeFpsCounterComponent = aframeFpsCounterComponent
     Vue.prototype.$aframeEnvironmentComponent = aframeEnvironmentComponent
     Vue.prototype.$aframeWatcher = aframeWatcher
   }

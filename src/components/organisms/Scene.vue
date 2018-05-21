@@ -1,5 +1,5 @@
 <template lang="pug">
-a-scene(fog='color: #FFFFFF; near: 0; far: 65;')
+a-scene
   a-assets
     a-asset-item#fontAwesomeRegularFont(
       src='../static/fonts/Font_Awesome_Regular.json'
@@ -10,6 +10,15 @@ a-scene(fog='color: #FFFFFF; near: 0; far: 65;')
     a-asset-item#fontAwesomeSolid(
       src='../static/fonts/Font_Awesome_Solid.json'
     )
+    a-asset-item#bungeeRegularFont(
+      src='../static/fonts/Bungee_Regular.json'
+    )
+    a-asset-item#dinerSwankyRegularFont(
+      src='../static/fonts/Fontdiner Swanky_Regular.json'
+    )
+    a-asset-item#pacificoRegularFont(
+      src='../static/fonts/Pacifico_Regular.json'
+    )
     a-asset-item#permanentMarkerRegularFont(
       src='../static/fonts/Permanent_Marker_Regular.json'
     )
@@ -19,9 +28,12 @@ a-scene(fog='color: #FFFFFF; near: 0; far: 65;')
     a-asset-item#RobotoRegularFont(
       src='../static/fonts/Roboto_Regular.json'
     )
+    img#luigui(src="static/img/luigui.jpg")
 
   Scenario
     Slide
+
+  //- a-entity(fps-counter)
 
   a-entity(hand-controls="left")
   a-entity(hand-controls="right")
@@ -87,10 +99,15 @@ export default {
     // }
   },
   data: () => ({}),
-  created: function () {},
-  mounted: function () {},
-  updated: function () {},
-  destroyed: function () {},
+  created () {
+    // document.addEventListener('keyup', event => this.keyControls(event))
+  },
+  mounted () {},
+  updated () {},
+  destroyed () {},
+  beforeDestroy () {
+    // document.removeEventListener('keyup', event => this.keyControls(event))
+  },
   components: {
     Scenario,
     Slide
@@ -99,7 +116,12 @@ export default {
   //   ...mapGetters([])
   },
   methods: {
-  //   ...mapActions([])
+  //   ...mapActions([]),
+    // keyControls (event) {
+    //   if (event.keyCode === 73) {
+    //     this.fps = !this.fps
+    //   }
+    // }
   },
   filters: {},
   watch: {}

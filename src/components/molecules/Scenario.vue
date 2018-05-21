@@ -3,30 +3,27 @@ a-entity(
   position="0 0 0"
   rotation="0 0 0"
 )
-  a-entity(:environment="getEnvironment")
-  //- a-entity#sky(
-  //-   geometry=`
-  //-     primitive: sphere;
-  //-     radius: 65;
-  //-   `,
-  //-   material=`
-  //-     shader: skyGradient;
-  //-     colorTop: #35495e;
-  //-     colorBottom: #41b883;
-  //-     side: back
-  //-   `
-  //- )
+  a-entity#environment(
+    :environment="getEnvironment"
+  )
+
+  a-entity#sky(
+    geometry=`
+      primitive: sphere;
+      radius: 130;
+    `,
+    :material="getSky"
+  )
   //- a-entity(ground)
-  //-
-  //- a-entity(
-  //-   light=`
-  //-     type: point;
-  //-     color: #f4f4f4;
-  //-     intensity: 0.5;
-  //-     distance: 0
-  //-   `,
-  //-   position='0 10 18'
-  //- )
+  a-entity(
+    light=`
+      type: point;
+      color: #f4f4f4;
+      intensity: 0.5;
+      distance: 0
+    `,
+    position='0 10 18'
+  )
   a-entity(
     light=`
       type: ambient;
@@ -54,23 +51,6 @@ a-entity(
     `,
     position='11 0 0'
   )
-  a-entity(
-    light=`
-      type: ambient;
-      color: #fff;
-      intensity: 0.15;
-      distance: 0
-    `,
-    position='-11 0 0'
-  )
-  //- a-entity(
-  //-   light=`
-  //-     type: ambient;
-  //-     color: #fff;
-  //-     intensity: 0.5;
-  //-   `,
-  //-   position='0 0 0'
-  //- )
 
   slot
 </template>
@@ -82,7 +62,7 @@ import {
 } from 'vuex'
 
 // import ground from '@/components/quarks/scenario/ground'
-// import skyGradient from '@/components/quarks/scenario/skyGradient'
+import skyGradient from '@/components/quarks/scenario/skyGradient'
 
 export default {
   props: {
@@ -104,7 +84,7 @@ export default {
   destroyed: function () {},
   components: {
     // ground,
-    // skyGradient
+    skyGradient
   },
   computed: {
     ...mapGetters('slides', [
@@ -113,14 +93,21 @@ export default {
     getEnvironment () {
       if (this.getActualSlide) {
         const preset = this.getActualSlide.scenario.preset || 'default'
-        const skyType = this.getActualSlide.scenario.skyType || 'atmosphere'
+        const grid = this.getActualSlide.scenario.grid || 'none'
         const skyColor = this.getActualSlide.scenario.skyColor || 'none'
         const horizonColor = this.getActualSlide.scenario.horizonColor || 'none'
-        const grid = this.getActualSlide.scenario.grid || 'none'
 
-        const environment = `preset: ${preset}; grid: ${grid}; lighting: none; skyType: ${skyType}; skyColor: ${skyColor}; horizonColor: ${horizonColor};`
-        console.log('environment', environment)
+        const environment = `preset: ${preset}; grid: ${grid}; fog: 0; skyType: gradient; skyColor: ${skyColor}; horizonColor: ${horizonColor};`
         return environment
+      }
+    },
+    getSky () {
+      if (this.getActualSlide) {
+        const skyColor = this.getActualSlide.scenario.skyColor || 'none'
+        const horizonColor = this.getActualSlide.scenario.horizonColor || 'none'
+
+        const sky = `shader: skyGradient; colorTop: ${skyColor}; colorBottom: ${horizonColor}; side: back`
+        return sky
       }
     }
   },

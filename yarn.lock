@@ -143,6 +143,10 @@ aframe-environment-component@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/aframe-environment-component/-/aframe-environment-component-1.0.0.tgz#dde6a8734dc7777d9c4a00b5bab25f877e8b3b37"
 
+aframe-fps-counter-component@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/aframe-fps-counter-component/-/aframe-fps-counter-component-1.0.1.tgz#cd7e8881533956f935e15bf3e656b7d9696d49c2"
+
 aframe-lerp-component@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/aframe-lerp-component/-/aframe-lerp-component-1.1.0.tgz#dc8c12c53698770c30f25eef8873e34a4e79c765"
