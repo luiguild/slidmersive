@@ -345,15 +345,48 @@ window.AFRAME.registerComponent('svg-geometry', {
         }
       }
       this.el.setObject3D('mesh', pathsGroup)
+
+      var geometry = this.el.getObject3D('mesh').children[0].geometry
+      geometry.computeBoundingBox()
+      var centroid = geometry.boundingBox.getCenter()
+      centroid.applyMatrix4(this.el.getObject3D('mesh').matrixWorld)
+      console.log(centroid)
+
+      // var boundingBox = this.el.getObject3D('mesh').children[0].geometry.boundingBox
+      // var position = new AFRAME.THREE.Vector3()
+      // // position.subVectors(boundingBox.max, boundingBox.min)
+      // // position.multiplyScalar(0.5)
+      // // position.add(boundingBox.min)
+      // position.applyMatrix4(this.el.getObject3D('mesh').children[0].matrixWorld)
+      // console.log(position.x + ',' + position.y + ',' + position.z)
+
+      // const computeGroupCenter = () => {
+      //   var center = new AFRAME.THREE.Vector3()
+      //   var children = this.el.getObject3D('mesh').children
+      //   var count = children.length
+      //   for (var i = 0; i < count; i++) {
+      //     center.add(children[i].position)
+      //   }
+      //   center.divideScalar(count)
+      //   return center
+      // }
       // var box = new AFRAME.THREE.Box3().setFromObject().getSize()
-      console.log()
+
+      // const boundingBox = new AFRAME.THREE.Box3()
+      //   .setFromObject(this.el.getObject3D('mesh'))
+      //   // .getCenter(this.el.getObject3D('mesh').position)
+
+      // let sphere = boundingBox.getBoundingSphere()
+      // let centerPoint = sphere.center
+      // console.log(centerPoint)
+
+      // console.log(this.el.getObject3D('mesh').localToWorld(boundingBox))
+      // console.log(computeGroupCenter())
+      // console.log(boundingBox)
       // console.log(this.el.getObject3D('mesh'))
-      // this.el.getObject3D('mesh').position.x = (box.min.x - box.max.x) / 2
-      // this.el.getObject3D('mesh').position.y = ((box.min.y * -1)) / 2
-      // this.el.getObject3D('mesh').position.z = 2
-      this.el.getObject3D('mesh').position.x = -6
-      this.el.getObject3D('mesh').position.y = 6
-      this.el.getObject3D('mesh').position.z = 4
+      this.el.getObject3D('mesh').position.x = centroid.x * -0.05
+      this.el.getObject3D('mesh').position.y = centroid.y * 0.05
+      this.el.getObject3D('mesh').position.z = 2
     })
   },
   tick () {}
