@@ -3,35 +3,47 @@
     {
       "component": "Welcome",
       "scenario": {
-        "preset": "goaland",
+        "preset": "yavapai",
         "skyType": "gradient",
-        "skyColor": "#71222D",
-        "horizonColor": "#FB8494",
-        "grid": "1x1"
+        "skyColor": "#35495e",
+        "horizonColor": "#41b883",
+        "grid": "",
+        "gridColor": "",
+        "groundColor": "#8c6a48",
+        "groundColor2": "#624330",
+        "groundTexture": "",
+        "dressing": "",
+        "dressingColor": "#624330"
       },
       "style": {
         "position": "0 0 5",
-        "color": "#FFF",
+        "color": {
+          "arrows": "#FFFFFF",
+          "background": "#FFFFFF"
+        },
         "height": "9",
         "width": "16",
-        "opacity": "0.6"
+        "opacity": ".5"
       }
     },
     {
       "component": "WhoAmI",
       "scenario": {
-        "preset": "forest",
+        "preset": "yavapai",
         "skyType": "gradient",
-        "skyColor": "#2770A2",
-        "horizonColor": "#56BBFF",
+        "skyColor": "#67B5F0",
+        "horizonColor": "#B4DEFF",
         "grid": "1x1"
       },
       "style": {
         "position": "0 0 5",
-        "color": "#CCC",
+        "color": {
+          "arrows": "#000000",
+          "background": "#000000"
+        },
         "height": "9",
         "width": "16",
-        "opacity": "0.6"
+        "opacity": "1"
       }
     },
     {
@@ -39,7 +51,10 @@
       "scenario": "",
       "style": {
         "position": "20 20 0",
-        "color": "#CCC",
+        "color": {
+          "arrows": "#000000",
+          "background": "#000000"
+        },
         "height": "9",
         "width": "16",
         "opacity": "0.6"

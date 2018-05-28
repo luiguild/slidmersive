@@ -89,6 +89,32 @@ export default {
       `
       return animation
     },
+    getAnimationFadeOut () {
+      const animation = `
+        property: material.opacity;
+        dur: 450;
+        delay: 0;
+        from: 1;
+        to: 0;
+        dir: alternate;
+        loop: 0;
+        easing: easeInOutQuad;
+      `
+      return animation
+    },
+    getAnimationFadeIn () {
+      const animation = `
+        property: material.opacity;
+        dur: 450;
+        delay: 500;
+        from: 0;
+        to: 1;
+        dir: alternate;
+        loop: 0;
+        easing: easeInOutQuad;
+      `
+      return animation
+    },
     getGeometry () {
       if (this.getActualSlide) {
         const height = this.getActualSlide.style.height

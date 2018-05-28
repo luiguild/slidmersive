@@ -6,6 +6,7 @@ import aframeLerpComponent from 'aframe-lerp-component'
 import aframeEnvironmentComponent from 'aframe-environment-component'
 import aframeFpsCounterComponent from 'aframe-fps-counter-component'
 import * as aframeWatcher from './watcher'
+import * as aframeSvgGeometry from './aframe-svg-geometry'
 
 Vue.config.ignoredElements = [
   'a-scene',
@@ -54,6 +55,7 @@ const VueAframe = {
     Vue.prototype.$aframeFpsCounterComponent = aframeFpsCounterComponent
     Vue.prototype.$aframeEnvironmentComponent = aframeEnvironmentComponent
     Vue.prototype.$aframeWatcher = aframeWatcher
+    Vue.prototype.$aframeSvgGeometry = aframeSvgGeometry
   }
 }
 
