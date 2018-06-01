@@ -11,8 +11,8 @@
         "gridColor": "",
         "groundColor": "#8c6a48",
         "groundColor2": "#624330",
-        "groundTexture": "",
-        "dressing": "",
+        "groundTexture": "walkernoise",
+        "dressing": "stones",
         "dressingColor": "#624330"
       },
       "style": {
@@ -27,37 +27,81 @@
       }
     },
     {
-      "component": "WhoAmI",
+      "component": "Welcome",
       "scenario": {
         "preset": "yavapai",
         "skyType": "gradient",
-        "skyColor": "#67B5F0",
-        "horizonColor": "#B4DEFF",
-        "grid": "1x1"
+        "skyColor": "#35495e",
+        "horizonColor": "#41b883",
+        "grid": "",
+        "gridColor": "",
+        "groundColor": "#8c6a48",
+        "groundColor2": "#624330",
+        "groundTexture": "walkernoise",
+        "dressing": "stones",
+        "dressingColor": "#624330"
       },
       "style": {
-        "position": "0 0 5",
+        "position": "0 0 10",
         "color": {
-          "arrows": "#000000",
-          "background": "#000000"
+          "arrows": "#FFFFFF",
+          "background": "#FFFFFF"
         },
         "height": "9",
         "width": "16",
-        "opacity": "1"
+        "opacity": ".5"
       }
     },
     {
       "component": "WhoAmI",
-      "scenario": "",
+      "scenario": {
+        "preset": "yavapai",
+        "skyType": "gradient",
+        "skyColor": "#000000",
+        "horizonColor": "#2E2E2E",
+        "grid": "",
+        "gridColor": "",
+        "groundColor": "#000000",
+        "groundColor2": "#2E2E2E",
+        "groundTexture": "squares",
+        "dressing": "none",
+        "dressingColor": "#2E2E2E"
+      },
       "style": {
-        "position": "20 20 0",
+        "position": "7 2 20",
         "color": {
-          "arrows": "#000000",
-          "background": "#000000"
+          "arrows": "#FFFFFF",
+          "background": "#FFFFFF"
         },
         "height": "9",
         "width": "16",
-        "opacity": "0.6"
+        "opacity": ".5"
+      }
+    },
+    {
+      "component": "SuperUber",
+      "scenario": {
+        "preset": "yavapai",
+        "skyType": "gradient",
+        "skyColor": "#000000",
+        "horizonColor": "#2E2E2E",
+        "grid": "",
+        "gridColor": "",
+        "groundColor": "#000000",
+        "groundColor2": "#2E2E2E",
+        "groundTexture": "squares",
+        "dressing": "none",
+        "dressingColor": "#2E2E2E"
+      },
+      "style": {
+        "position": "0 8 -1",
+        "color": {
+          "arrows": "#FFFFFF",
+          "background": "#FFFFFF"
+        },
+        "height": "9",
+        "width": "16",
+        "opacity": ".5"
       }
     }
   ]
