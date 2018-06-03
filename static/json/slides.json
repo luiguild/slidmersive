@@ -7,13 +7,22 @@
         "skyType": "gradient",
         "skyColor": "#35495e",
         "horizonColor": "#41b883",
+        "playArea": 1,
+        "seed": 8,
         "grid": "",
         "gridColor": "",
         "groundColor": "#8c6a48",
         "groundColor2": "#624330",
+        "ground": "noise",
+        "groundYScale": 4.18,
         "groundTexture": "walkernoise",
         "dressing": "stones",
-        "dressingColor": "#624330"
+        "dressingColor": "#624330",
+        "dressingAmount": 500,
+        "dressingScale": 0.1,
+        "dressingVariance": "0.1 0.1 0.1",
+        "dressingUniformScale": true,
+        "dressingOnPlayArea": 1
       },
       "style": {
         "position": "0 0 5",
@@ -33,13 +42,22 @@
         "skyType": "gradient",
         "skyColor": "#35495e",
         "horizonColor": "#41b883",
+        "playArea": 1,
+        "seed": 8,
         "grid": "",
         "gridColor": "",
         "groundColor": "#8c6a48",
         "groundColor2": "#624330",
+        "ground": "noise",
+        "groundYScale": 4.18,
         "groundTexture": "walkernoise",
         "dressing": "stones",
-        "dressingColor": "#624330"
+        "dressingColor": "#624330",
+        "dressingAmount": 500,
+        "dressingScale": 0.1,
+        "dressingVariance": "0.1 0.1 0.1",
+        "dressingUniformScale": true,
+        "dressingOnPlayArea": 1
       },
       "style": {
         "position": "0 0 10",
@@ -59,13 +77,22 @@
         "skyType": "gradient",
         "skyColor": "#000000",
         "horizonColor": "#2E2E2E",
+        "playArea": 1,
+        "seed": 8,
         "grid": "",
         "gridColor": "",
         "groundColor": "#000000",
         "groundColor2": "#2E2E2E",
+        "ground": "noise",
+        "groundYScale": 4.18,
         "groundTexture": "squares",
         "dressing": "none",
-        "dressingColor": "#2E2E2E"
+        "dressingColor": "",
+        "dressingAmount": 500,
+        "dressingScale": 0.1,
+        "dressingVariance": "0.1 0.1 0.1",
+        "dressingUniformScale": true,
+        "dressingOnPlayArea": 1
       },
       "style": {
         "position": "7 2 20",
@@ -85,13 +112,22 @@
         "skyType": "gradient",
         "skyColor": "#000000",
         "horizonColor": "#2E2E2E",
+        "playArea": 1,
+        "seed": 8,
         "grid": "",
         "gridColor": "",
         "groundColor": "#000000",
         "groundColor2": "#2E2E2E",
+        "ground": "noise",
+        "groundYScale": 4.18,
         "groundTexture": "squares",
         "dressing": "none",
-        "dressingColor": ""
+        "dressingColor": "",
+        "dressingAmount": 500,
+        "dressingScale": 0.1,
+        "dressingVariance": "0.1 0.1 0.1",
+        "dressingUniformScale": true,
+        "dressingOnPlayArea": 1
       },
       "style": {
         "position": "0 8 0",
@@ -111,13 +147,22 @@
         "skyType": "gradient",
         "skyColor": "#000000",
         "horizonColor": "#000000",
+        "playArea": 1,
+        "seed": 8,
         "grid": "1x1",
         "gridColor": "#FFFFFF",
         "groundColor": "#000000",
         "groundColor2": "#000000",
+        "ground": "noise",
+        "groundYScale": 4.18,
         "groundTexture": "none",
         "dressing": "none",
-        "dressingColor": ""
+        "dressingColor": "",
+        "dressingAmount": 500,
+        "dressingScale": 0.1,
+        "dressingVariance": "0.1 0.1 0.1",
+        "dressingUniformScale": true,
+        "dressingOnPlayArea": 1
       },
       "style": {
         "position": "7 -1 15",
@@ -163,6 +208,76 @@
         "height": "9",
         "width": "16",
         "opacity": ".5"
+      }
+    },
+    {
+      "component": "Stack",
+      "scenario": {
+        "preset": "yavapai",
+        "skyType": "gradient",
+        "skyColor": "#000000",
+        "horizonColor": "#000000",
+        "playArea": 1,
+        "seed": 8,
+        "grid": "1x1",
+        "gridColor": "#FFFFFF",
+        "groundColor": "#000000",
+        "groundColor2": "#000000",
+        "ground": "noise",
+        "groundYScale": 4.18,
+        "groundTexture": "none",
+        "dressing": "none",
+        "dressingColor": "",
+        "dressingAmount": 500,
+        "dressingScale": 0.1,
+        "dressingVariance": "0.1 0.1 0.1",
+        "dressingUniformScale": true,
+        "dressingOnPlayArea": 1
+      },
+      "style": {
+        "position": "0 0 10",
+        "color": {
+          "arrows": "#FFFFFF",
+          "background": "#FFFFFF"
+        },
+        "height": "9",
+        "width": "16",
+        "opacity": "0"
+      }
+    },
+    {
+      "component": "ComponentsTypes",
+      "scenario": {
+        "preset": "yavapai",
+        "skyType": "gradient",
+        "skyColor": "#000000",
+        "horizonColor": "#000000",
+        "playArea": 1,
+        "seed": 8,
+        "grid": "1x1",
+        "gridColor": "#FFFFFF",
+        "groundColor": "#000000",
+        "groundColor2": "#000000",
+        "ground": "noise",
+        "groundYScale": 4.18,
+        "groundTexture": "none",
+        "dressing": "none",
+        "dressingColor": "",
+        "dressingAmount": 500,
+        "dressingScale": 0.1,
+        "dressingVariance": "0.1 0.1 0.1",
+        "dressingUniformScale": true,
+        "dressingOnPlayArea": 1
+      },
+      "style": {
+        "position": "0 0 10",
+        "color": {
+          "arrows": "#FFFFFF",
+          "background": "#FFFFFF"
+        },
+        "height": "9",
+        "width": "16",
+        "opacity": "0"
       }
     }
   ]

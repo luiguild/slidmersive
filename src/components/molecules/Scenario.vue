@@ -92,31 +92,85 @@ export default {
     ]),
     getEnvironment () {
       if (this.getActualSlide) {
-        const environment = [
+        return [
           'fog: 0',
           'skyType: gradient',
-          this.getActualSlide.scenario.preset ? `preset: ${this.getActualSlide.scenario.preset}` : 'preset: default',
-          this.getActualSlide.scenario.grid ? `grid: ${this.getActualSlide.scenario.grid}` : 'grid: none',
-          this.getActualSlide.scenario.seed ? `seed: ${this.getActualSlide.scenario.seed}` : 'seed: 1',
-          this.getActualSlide.scenario.playArea ? `playArea: ${this.getActualSlide.scenario.playArea}` : 'playArea: 1',
-          this.getActualSlide.scenario.gridColor ? `gridColor: ${this.getActualSlide.scenario.gridColor}` : null,
-          this.getActualSlide.scenario.skyColor ? `skyColor: ${this.getActualSlide.scenario.skyColor}` : null,
-          this.getActualSlide.scenario.horizonColor ? `horizonColor: ${this.getActualSlide.scenario.horizonColor}` : null,
-          this.getActualSlide.scenario.groundColor ? `groundColor: ${this.getActualSlide.scenario.groundColor}` : 'groundColor: #553e35',
-          this.getActualSlide.scenario.groundColor2 ? `groundColor2: ${this.getActualSlide.scenario.groundColor2}` : 'groundColor2: #694439',
-          this.getActualSlide.scenario.groundTexture ? `groundTexture: ${this.getActualSlide.scenario.groundTexture}` : 'groundTexture: none',
-          this.getActualSlide.scenario.ground ? `ground: ${this.getActualSlide.scenario.ground}` : 'ground: hills',
-          this.getActualSlide.scenario.groundYScale ? `groundYScale: ${this.getActualSlide.scenario.groundYScale}` : 'groundYScale: 3',
-          this.getActualSlide.scenario.dressing ? `dressing: ${this.getActualSlide.scenario.dressing}` : 'dressing: none',
-          this.getActualSlide.scenario.dressingColor ? `dressingColor: ${this.getActualSlide.scenario.dressingColor}` : null,
-          this.getActualSlide.scenario.dressingAmount ? `dressingAmount: ${this.getActualSlide.scenario.dressingAmount}` : 'dressingAmount: 10',
-          this.getActualSlide.scenario.dressingScale ? `dressingScale: ${this.getActualSlide.scenario.dressingScale}` : 'dressingScale: 5',
-          this.getActualSlide.scenario.dressingVariance ? `dressingVariance: ${this.getActualSlide.scenario.dressingVariance}` : "dressingVariance: '1 1 1'",
-          this.getActualSlide.scenario.dressingUniformScale ? `dressingUniformScale: ${this.getActualSlide.scenario.dressingUniformScale}` : "dressingUniformScale: ''",
-          this.getActualSlide.scenario.dressingOnPlayArea ? `dressingOnPlayArea: ${this.getActualSlide.scenario.dressingOnPlayArea}` : 'dressingOnPlayArea: 0'
+          this.getActualSlide.scenario.preset
+            ? `preset: ${this.getActualSlide.scenario.preset}`
+            : 'preset: default',
+
+          this.getActualSlide.scenario.grid
+            ? `grid: ${this.getActualSlide.scenario.grid}`
+            : 'grid: none',
+
+          this.getActualSlide.scenario.seed
+            ? `seed: ${this.getActualSlide.scenario.seed}`
+            : 'seed: 1',
+
+          this.getActualSlide.scenario.playArea
+            ? `playArea: ${this.getActualSlide.scenario.playArea}`
+            : 'playArea: 1',
+
+          this.getActualSlide.scenario.gridColor
+            ? `gridColor: ${this.getActualSlide.scenario.gridColor}`
+            : null,
+
+          this.getActualSlide.scenario.skyColor
+            ? `skyColor: ${this.getActualSlide.scenario.skyColor}`
+            : null,
+
+          this.getActualSlide.scenario.horizonColor
+            ? `horizonColor: ${this.getActualSlide.scenario.horizonColor}`
+            : null,
+
+          this.getActualSlide.scenario.groundColor
+            ? `groundColor: ${this.getActualSlide.scenario.groundColor}`
+            : 'groundColor: #553e35',
+
+          this.getActualSlide.scenario.groundColor2
+            ? `groundColor2: ${this.getActualSlide.scenario.groundColor2}`
+            : 'groundColor2: #694439',
+
+          this.getActualSlide.scenario.groundTexture
+            ? `groundTexture: ${this.getActualSlide.scenario.groundTexture}`
+            : 'groundTexture: none',
+
+          this.getActualSlide.scenario.ground
+            ? `ground: ${this.getActualSlide.scenario.ground}`
+            : 'ground: hills',
+
+          this.getActualSlide.scenario.groundYScale
+            ? `groundYScale: ${this.getActualSlide.scenario.groundYScale}`
+            : 'groundYScale: 3',
+
+          this.getActualSlide.scenario.dressing
+            ? `dressing: ${this.getActualSlide.scenario.dressing}`
+            : 'dressing: none',
+
+          this.getActualSlide.scenario.dressingColor
+            ? `dressingColor: ${this.getActualSlide.scenario.dressingColor}`
+            : null,
+
+          this.getActualSlide.scenario.dressingAmount
+            ? `dressingAmount: ${this.getActualSlide.scenario.dressingAmount}`
+            : 'dressingAmount: 10',
+
+          this.getActualSlide.scenario.dressingScale
+            ? `dressingScale: ${this.getActualSlide.scenario.dressingScale}`
+            : 'dressingScale: 5',
+
+          this.getActualSlide.scenario.dressingVariance
+            ? `dressingVariance: ${this.getActualSlide.scenario.dressingVariance}`
+            : "dressingVariance: '1 1 1'",
+
+          this.getActualSlide.scenario.dressingUniformScale
+            ? `dressingUniformScale: ${this.getActualSlide.scenario.dressingUniformScale}`
+            : "dressingUniformScale: ''",
+
+          this.getActualSlide.scenario.dressingOnPlayArea
+            ? `dressingOnPlayArea: ${this.getActualSlide.scenario.dressingOnPlayArea}`
+            : 'dressingOnPlayArea: 0'
         ].join('; ')
-        console.log(environment)
-        return environment
       }
     },
     getSky () {

@@ -24,6 +24,9 @@ window.AFRAME.registerComponent('svg-path-extruder', {
     extrude: {
       type: 'number',
       default: 0.1
+    },
+    overrideColor: {
+      type: 'string'
     }
   },
   $d3g: {},
@@ -39,11 +42,14 @@ window.AFRAME.registerComponent('svg-path-extruder', {
         if (svg.length > 0) {
           svg
             .map(elm => {
+              console.log(this.data.overrideColor)
               return {
                 ...elm,
                 material: new AFRAME.THREE.MeshLambertMaterial({
                   side: AFRAME.THREE.DoubleSide,
-                  color: elm.fill
+                  color: this.data.overrideColor
+                    ? this.data.overrideColor
+                    : elm.fill
                 })
               }
             })
