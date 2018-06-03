@@ -19,7 +19,19 @@ a-entity
       font="#bungeeRegularFont",
       height="0.2",
       size="1.1",
-      position="-3.2 -0.7 0",
+      position="-3 -0.7 0",
+      material="color: #FFFFFF;",
+      bevelEnabled="false",
+      bevelSize="0",
+      bevelThickness="0",
+      curveSegments="0"
+    )
+    SimpleText(
+      value="single file component",
+      font="#pacificoRegularFont",
+      height="0.2",
+      size="0.4",
+      position="-3.4 -1.4 0",
       material="color: #FFFFFF;",
       bevelEnabled="false",
       bevelSize="0",
@@ -35,7 +47,7 @@ a-entity
         height: 0.4;
         size: 1.5;
       `,
-      position="-1.2 -0.6 1",
+      position="-1.0 -0.6 1",
       rotation="0 0 0",
       material="color: #FFFFFF; opacity: 1"
     )
@@ -65,13 +77,24 @@ a-entity
       direction="alternate",
       repeat="indefinite"
     )
-
     SimpleText(
       value="<a-entity>",
       font="#bungeeRegularFont",
       height="0.2",
       size="0.65",
       position="-4.1 -0.6 0",
+      material="color: #FFFFFF;",
+      bevelEnabled="false",
+      bevelSize="0",
+      bevelThickness="0",
+      curveSegments="0"
+    )
+    SimpleText(
+      value="web component",
+      font="#pacificoRegularFont",
+      height="0.2",
+      size="0.4",
+      position="-2.8 -1.2 0",
       material="color: #FFFFFF;",
       bevelEnabled="false",
       bevelSize="0",
