@@ -1,26 +1,68 @@
 <template lang="pug">
-a-scene(antialias="true", cursor="rayOrigin: mouse")
+a-scene(
+  antialias="true",
+  cursor="rayOrigin: mouse"
+)
   Assets
   Scenario
     Slide
 
   //- a-entity(fps-counter)
 
-  a-entity(hand-controls="left")
-  a-entity(hand-controls="right")
+  //- a-entity(
+  //-   vive-controls="hand: right",
+  //-   json-model="src:#gun"
+  //- )
+  //- a-entity(
+  //-   vive-controls="hand: left"
+  //- )
+
+  a-entity#leftHand(
+    shoot-controls="hand: left",
+    weapon,
+    shoot
+  )
+
+  a-entity#rightHandPivot
+    a-entity#rightHand(
+      shoot-controls="hand: right",
+      weapon,
+      shoot
+    )
+
+  //- a-entity(
+  //-   id="leftHand",
+  //-   shoot-controls="hand: left",
+  //-   weapon,
+  //-   shoot,
+  //-   json-model="src:#gun"
+  //- )
+  //-
+  //- a-entity(
+  //-   id="rightHand",
+  //-   shoot-controls="hand: right",
+  //-   weapon,
+  //-   shoot,
+  //-   json-model="src:#gun"
+  //- )
 
   a-entity(
-    rotation="0 -170 0",
-    position="0 0 -3",
+    rotation="0 0 0"
   )
-    a-camera(
+    a-entity#player(
+      camera="userHeight: -0.5",
       vuex-watcher=`
         attributes: rotation, position;
         actions: setCameraRotation, setCameraPosition;
       `,
+      wasd-controls,
       look-controls,
-      wasd-controls
+      restrict-position
     )
+    //- a-camera(
+    //-   look-controls,
+    //-   wasd-controls
+    //- )
 </template>
 
 <script>

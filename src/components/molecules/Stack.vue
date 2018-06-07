@@ -1,20 +1,31 @@
 <template lang="pug">
 a-entity
-  a-entity#vuejs(
-    svg-path-extruder="url: ../static/img/vuejs.svg; scale: 2.7; extrude: 1;",
-    position="-3.5 -2 0",
-    rotation="0 20 0"
-  )
+  a-entity
     a-animation(
-      attribute="rotation",
-      from="0 20 0"
-      to="0 70 0",
-      delay="2000",
-      dur="1000",
-      easing="ease-out",
+      attribute="position",
+      from="0 30 0"
+      to="0 0 0",
+      delay="0",
+      dur="1500",
+      easing="ease-in-out-bounce",
       direction="alternate",
-      repeat="indefinite"
+      repeat="0"
     )
+    a-entity#vuejs(
+      svg-path-extruder="url: ../static/img/vuejs.svg; scale: 2.7; extrude: 1;",
+      position="-3.5 -2 0",
+      rotation="0 20 0"
+    )
+      a-animation(
+        attribute="rotation",
+        from="0 20 0"
+        to="0 70 0",
+        delay="2000",
+        dur="1000",
+        easing="ease-out",
+        direction="alternate",
+        repeat="indefinite"
+      )
 
   a-entity#heart
     a-entity(

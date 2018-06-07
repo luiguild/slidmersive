@@ -38,13 +38,16 @@ export default {
   methods: {
     ...mapActions('slides', [
       'setNextSlides',
-      'setPreviousSlides'
+      'setPreviousSlides',
+      'setToggleLockSlides'
     ]),
     keyControls (event) {
       if (event.keyCode === 190) {
         return this.setNextSlides()
       } else if (event.keyCode === 188) {
         return this.setPreviousSlides()
+      } else if (event.keyCode === 76) {
+        return this.setToggleLockSlides()
       }
     }
   },

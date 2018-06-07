@@ -8,6 +8,8 @@ import aframeFpsCounterComponent from 'aframe-fps-counter-component'
 import * as aframeWatcher from './watcher'
 import * as aframeSvgPathExtruder from './aframe-svg-path-extruder'
 
+require('../a-blast')
+
 Vue.config.ignoredElements = [
   'a-scene',
   'a-assets',

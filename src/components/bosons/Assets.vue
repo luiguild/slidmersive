@@ -30,6 +30,9 @@
     a-asset-item#tree(
       src="../static/dae/tree1.dae"
     )
+    a-asset-item#playerBullet(
+      src="../static/json/player-bullet.json"
+    )
     img#su1(src="static/img/su1.jpg")
     img#su2(src="static/img/su2.jpg")
     img#su3(src="static/img/su3.jpg")

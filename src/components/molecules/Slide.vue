@@ -1,7 +1,7 @@
 <template lang="pug">
   a-entity(
-    rotation="0 190 0",
-    position="3.2 6 15"
+    rotation="0 0 0",
+    position="0 6 -10"
   )
     a-entity(
       :position="actualPosition",
@@ -66,10 +66,7 @@ export default {
     getCameraRotation () {
       if (this.getCameraInfo.position) {
         const rotation = this.getCameraInfo.rotation
-        const x =
-          rotation.x >= 1.6
-            ? rotation.x
-            : 1.6
+        const x = rotation.x
         const y = rotation.y
         const z = rotation.z || 0
 
@@ -130,9 +127,6 @@ export default {
     }
   },
   methods: {
-    ...mapActions('slides', [
-      'setActual'
-    ]),
     setPosition (newPosition) {
       if (this.actualPosition === '') {
         this.actualPosition = newPosition

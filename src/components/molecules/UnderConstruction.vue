@@ -2,7 +2,7 @@
   a-entity
     a-entity#warning(
       svg-path-extruder="url: ../static/img/warning.svg; scale: 4; extrude: 2;",
-      position="5 0 -12",
+      position="7 0 -12",
       rotation="0 20 -20"
     )
       a-animation(

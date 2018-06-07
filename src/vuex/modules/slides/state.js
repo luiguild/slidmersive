@@ -4,7 +4,8 @@ const state = {
   slides: {
     actual: undefined,
     actualIndex: 0,
-    all: []
+    all: [],
+    lock: false
   }
 }
 

@@ -42,7 +42,6 @@ window.AFRAME.registerComponent('svg-path-extruder', {
         if (svg.length > 0) {
           svg
             .map(elm => {
-              console.log(this.data.overrideColor)
               return {
                 ...elm,
                 material: new AFRAME.THREE.MeshLambertMaterial({
@@ -75,7 +74,9 @@ window.AFRAME.registerComponent('svg-path-extruder', {
             .forEach((elm, indx, arr) => {
               elm.scale.x = (0.0095 * this.data.scale)
               elm.scale.y = (0.0095 * this.data.scale)
-              elm.scale.z = (this.data.extrude + (indx * 0.004))
+              elm.scale.z = this.data.overrideColor
+                ? this.data.extrude
+                : (this.data.extrude + (indx * 0.004))
               elm.rotation.x = Math.PI
               pathsGroup.add(elm)
             })

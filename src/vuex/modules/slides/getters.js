@@ -2,6 +2,7 @@
 
 const getters = {
   getActualSlide: state => state.slides.actual,
+  getLockSlides: state => state.slides.lock,
   getActualSlideIndex: state => state.slides.actualIndex,
   getActualSituation: state => {
     const actualIndex = parseInt(state.slides.actualIndex)

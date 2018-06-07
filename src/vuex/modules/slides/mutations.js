@@ -6,6 +6,11 @@ const mutations = {
     state.slides.all = value
     return state
   },
+  toggleLockSlides: state => {
+    state.slides.lock = !state.slides.lock
+
+    return state
+  },
   goToSlide: (state, value) => {
     if (state.slides.all.length >= value) {
       state.slides.actualIndex = value

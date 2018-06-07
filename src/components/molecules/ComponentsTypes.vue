@@ -40,16 +40,17 @@ a-entity
     )
 
   a-entity#plus
-    a-entity(
-      text-geometry=`
-        value: ;
-        font: #fontAwesomeSolid;
-        height: 0.4;
-        size: 1.5;
-      `,
+    SimpleText(
+      value="",
+      font="#fontAwesomeSolid",
+      height="0.3",
+      size="1.5",
       position="-1.0 -0.6 1",
-      rotation="0 0 0",
-      material="color: #FFFFFF; opacity: 1"
+      material="color: #FFFFFF;",
+      bevelEnabled="false",
+      bevelSize="0",
+      bevelThickness="0",
+      curveSegments="0"
     )
     a-animation(
       attribute="position",

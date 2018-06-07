@@ -1,5 +1,7 @@
 <template lang="pug">
-Scene
+.app
+  LockIndicator
+  Scene
 </template>
 
 <script>
@@ -8,6 +10,7 @@ import {
   mapActions
 } from 'vuex'
 
+import { LockIndicator } from '@/components/atoms'
 import { Scene } from '@/components/organisms'
 
 export default {
@@ -30,25 +33,32 @@ export default {
   },
   destroyed () {},
   components: {
-    Scene
+    Scene,
+    LockIndicator
   },
   computed: {
     ...mapGetters([])
   },
   methods: {
     ...mapActions('slides', [
-      'setActual'
+      'setActual',
+      'setToggleLockSlides'
     ])
   },
   filters: {},
   watch: {
     '$route' (route) {
-      this.setActual(route.params.id)
+      return Promise.all([
+        this.setActual(route.params.id),
+        this.setToggleLockSlides()
+      ])
     }
   }
 }
 </script>
 
 <style lang="sass">
-// @import ../../static/sass/imports/_extend
+  .app
+    height: 100vh
+    width: 100vw
 </style>
