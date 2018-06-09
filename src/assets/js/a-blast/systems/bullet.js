@@ -1,5 +1,6 @@
 /* global AFRAME ABLAST */
-import PoolHelper from '../lib/poolhelper'
+// import PoolHelper from '../lib/poolhelper'
+var PoolHelper = require('../lib/poolhelper.js').PoolHelper;
 
 ABLAST.BULLETS = {};
 
@@ -22,7 +23,8 @@ ABLAST.registerBullet = function (name, data, definition) {
 AFRAME.registerSystem('bullet', {
   init: function () {
     var self = this;
-    this.poolHelper = PoolHelper('bullet', ABLAST.BULLETS, this.sceneEl);
+
+    this.poolHelper = new PoolHelper('bullet', ABLAST.BULLETS, this.sceneEl);
     this.activeBullets = [];
 
     /*this.sceneEl.addEventListener('gamestate-changed', function (evt) {

@@ -2,19 +2,42 @@
 import axios from '@/axios'
 
 const actions = {
+  setSocketType: ({ commit }, value) =>
+    commit('socketType', value),
+
   getSlides: ({ commit }, value) =>
     axios.slides.getAll()
       .then(data => commit('allSlides', data.slides)),
 
-  setNextSlides: ({ commit, getters }) => {
+  setNextSlides: ({ commit, dispatch, getters }) => {
     if (!getters.getLockSlides) {
-      return commit('nextSlide')
+      return Promise.all([
+        commit('nextSlide'),
+        dispatch(
+          'socket/setSocketData',
+          {
+            slideIndex: parseInt(getters.getActualSlideIndex)
+          },
+          {
+            root: true
+          })
+      ])
     }
   },
 
-  setPreviousSlides: ({ commit, getters }) => {
+  setPreviousSlides: ({ commit, dispatch, getters }) => {
     if (!getters.getLockSlides) {
-      return commit('previousSlide')
+      return Promise.all([
+        commit('previousSlide'),
+        dispatch(
+          'socket/setSocketData',
+          {
+            slideIndex: parseInt(getters.getActualSlideIndex)
+          },
+          {
+            root: true
+          })
+      ])
     }
   },
 

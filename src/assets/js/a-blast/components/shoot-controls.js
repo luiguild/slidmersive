@@ -1,3 +1,4 @@
+/* eslint-disable */
 /* global AFRAME */
 AFRAME.registerComponent('shoot-controls', {
   // dependencies: ['tracked-controls'],

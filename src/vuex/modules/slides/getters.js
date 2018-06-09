@@ -1,6 +1,7 @@
 // import Vue from 'vue'
 
 const getters = {
+  getSocketType: state => state.slides.socket,
   getActualSlide: state => state.slides.actual,
   getLockSlides: state => state.slides.lock,
   getActualSlideIndex: state => state.slides.actualIndex,

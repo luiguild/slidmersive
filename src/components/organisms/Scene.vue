@@ -1,6 +1,5 @@
 <template lang="pug">
 a-scene(
-  antialias="true",
   cursor="rayOrigin: mouse"
 )
   Assets
@@ -8,14 +7,6 @@ a-scene(
     Slide
 
   //- a-entity(fps-counter)
-
-  //- a-entity(
-  //-   vive-controls="hand: right",
-  //-   json-model="src:#gun"
-  //- )
-  //- a-entity(
-  //-   vive-controls="hand: left"
-  //- )
 
   a-entity#leftHand(
     shoot-controls="hand: left",
@@ -30,27 +21,21 @@ a-scene(
       shoot
     )
 
-  //- a-entity(
-  //-   id="leftHand",
-  //-   shoot-controls="hand: left",
-  //-   weapon,
-  //-   shoot,
-  //-   json-model="src:#gun"
-  //- )
-  //-
-  //- a-entity(
-  //-   id="rightHand",
-  //-   shoot-controls="hand: right",
-  //-   weapon,
-  //-   shoot,
-  //-   json-model="src:#gun"
-  //- )
+    a-entity(
+      v-if="this.getSocketType === 'spectator'",
+      :rotation="getSyncRotation",
+      :position="getSyncPosition"
+    )
+      a-entity#player(
+        camera,
+        wasd-controls,
+        look-controls,
+        restrict-position
+      )
 
-  a-entity(
-    rotation="0 0 0"
-  )
     a-entity#player(
-      camera="userHeight: -0.5",
+      v-if="this.getSocketType === 'presenter'"
+      camera,
       vuex-watcher=`
         attributes: rotation, position;
         actions: setCameraRotation, setCameraPosition;
@@ -59,17 +44,15 @@ a-scene(
       look-controls,
       restrict-position
     )
-    //- a-camera(
-    //-   look-controls,
-    //-   wasd-controls
+    //- a-entity#spectator(
+      camera="spectator: true;"
     //- )
 </template>
 
 <script>
-// import {
-//   mapGetters,
-//   mapActions
-// } from 'vuex'
+import {
+  mapGetters
+} from 'vuex'
 
 import {
   Scenario,
@@ -109,7 +92,36 @@ export default {
     Assets
   },
   computed: {
-  //   ...mapGetters([])
+    ...mapGetters('slides', [
+      'getSocketType'
+    ]),
+    ...mapGetters('socket', [
+      'getSocketDataReceived'
+    ]),
+    getSyncRotation () {
+      if (this.getSocketType === 'spectator' &&
+          this.getSocketDataReceived.rotation) {
+        const rotation = this.getSocketDataReceived.rotation
+        const x = rotation.x
+        const y = rotation.y
+        const z = rotation.z
+
+        return `${x} ${y} ${z}`
+      }
+    },
+    getSyncPosition () {
+      if (this.getSocketType === 'spectator' &&
+          this.getSocketDataReceived.position) {
+        const position = this.getSocketDataReceived.position
+        const x = position.x
+        const y = position.y
+        const z = position.z
+        // const y = position.y - 0.5
+        // const z = position.z + 1
+
+        return `${x} ${y} ${z}`
+      }
+    }
   },
   methods: {
   //   ...mapActions([]),

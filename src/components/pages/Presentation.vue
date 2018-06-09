@@ -37,7 +37,12 @@ export default {
     LockIndicator
   },
   computed: {
-    ...mapGetters([])
+    ...mapGetters('slides', [
+      'getSocketType'
+    ]),
+    ...mapGetters('socket', [
+      'getSocketDataReceived'
+    ]),
   },
   methods: {
     ...mapActions('slides', [
@@ -52,6 +57,11 @@ export default {
         this.setActual(route.params.id),
         this.setToggleLockSlides()
       ])
+    },
+    'getSocketDataReceived.slideIndex' (change) {
+      if (this.getSocketType === 'spectator') {
+        return this.setActual(change)
+      }
     }
   }
 }

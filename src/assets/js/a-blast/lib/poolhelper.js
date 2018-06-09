@@ -1,10 +1,11 @@
+/* eslint-disable */
 var createMixin = require('./utils').createMixin;
 
 var PoolHelper = function (groupName, data, sceneEl) {
   this.groupName = groupName;
   this.sceneEl = sceneEl || document.querySelector('a-scene');
-  this.default.prototype.initializePools(groupName, data);
-}.bind(this);
+  this.initializePools(groupName, data);
+};
 
 PoolHelper.prototype = {
   initializePools: function (groupName, data) {
@@ -22,7 +23,7 @@ PoolHelper.prototype = {
           dynamic: true
         });
     });
-  }.bind(this),
+  },
 
   returnEntity: function (name, entity) {
     var mixinName = this.groupName + name;
@@ -39,4 +40,4 @@ PoolHelper.prototype = {
   }
 };
 
-export default PoolHelper
+export { PoolHelper };

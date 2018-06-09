@@ -61,14 +61,29 @@ export default {
       'getCameraInfo'
     ]),
     ...mapGetters('slides', [
+      'getSocketType',
       'getActualSlide'
     ]),
+    ...mapGetters('socket', [
+      'getSocketDataReceived'
+    ]),
     getCameraRotation () {
-      if (this.getCameraInfo.position) {
+      if (this.getSocketType === 'presenter' &&
+          this.getCameraInfo.rotation) {
         const rotation = this.getCameraInfo.rotation
         const x = rotation.x
         const y = rotation.y
         const z = rotation.z || 0
+
+        return `${x} ${y} ${z}`
+      }
+
+      if (this.getSocketType === 'spectator' &&
+          this.getSocketDataReceived.rotation) {
+        const rotation = this.getSocketDataReceived.rotation
+        const x = rotation.x
+        const y = rotation.y
+        const z = rotation.z
 
         return `${x} ${y} ${z}`
       }
@@ -80,32 +95,6 @@ export default {
         delay: 0;
         from: ${this.pastPosition};
         to: ${this.nextPosition};
-        dir: alternate;
-        loop: 0;
-        easing: easeInOutQuad;
-      `
-      return animation
-    },
-    getAnimationFadeOut () {
-      const animation = `
-        property: material.opacity;
-        dur: 450;
-        delay: 0;
-        from: 1;
-        to: 0;
-        dir: alternate;
-        loop: 0;
-        easing: easeInOutQuad;
-      `
-      return animation
-    },
-    getAnimationFadeIn () {
-      const animation = `
-        property: material.opacity;
-        dur: 450;
-        delay: 500;
-        from: 0;
-        to: 1;
         dir: alternate;
         loop: 0;
         easing: easeInOutQuad;

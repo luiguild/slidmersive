@@ -76,7 +76,7 @@ window.AFRAME.registerComponent('svg-path-extruder', {
               elm.scale.y = (0.0095 * this.data.scale)
               elm.scale.z = this.data.overrideColor
                 ? this.data.extrude
-                : (this.data.extrude + (indx * 0.004))
+                : (this.data.extrude + (indx * 0.007))
               elm.rotation.x = Math.PI
               pathsGroup.add(elm)
             })

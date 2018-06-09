@@ -1,3 +1,4 @@
+/* eslint-disable */
 /* globals AFRAME THREE */
 AFRAME.registerComponent('collision-helper', {
   schema: {

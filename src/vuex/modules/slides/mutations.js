@@ -2,6 +2,10 @@
 import router from '@/router'
 
 const mutations = {
+  socketType: (state, value) => {
+    state.slides.socket = value
+    return state
+  },
   allSlides: (state, value) => {
     state.slides.all = value
     return state

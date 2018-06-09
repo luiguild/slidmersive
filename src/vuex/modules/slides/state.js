@@ -5,7 +5,8 @@ const state = {
     actual: undefined,
     actualIndex: 0,
     all: [],
-    lock: false
+    lock: false,
+    socket: null
   }
 }
 

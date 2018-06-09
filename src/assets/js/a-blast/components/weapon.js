@@ -1,3 +1,4 @@
+/* eslint-disable */
 // Weapon definitions.
 var WEAPONS = {
   default: {

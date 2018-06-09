@@ -2,10 +2,27 @@
 // import axios from '@/axios'
 
 const actions = {
-  setCameraPosition: ({ commit }, position) =>
-    commit('cameraInfo', position),
-  setCameraRotation: ({ commit }, rotation) =>
-    commit('cameraInfo', rotation)
+  setCameraPosition: ({ dispatch, commit }, position) =>
+    Promise.all([
+      commit('cameraInfo', position),
+      dispatch(
+        'socket/setSocketData',
+        position,
+        {
+          root: true
+        })
+    ]),
+
+  setCameraRotation: ({ dispatch, commit }, rotation) =>
+    Promise.all([
+      commit('cameraInfo', rotation),
+      dispatch(
+        'socket/setSocketData',
+        rotation,
+        {
+          root: true
+        })
+    ])
 }
 
 export default actions
