@@ -171,13 +171,48 @@ export default {
     SimpleText
   },
   computed: {
+    ...mapGetters('slides', [
+      'getSocketType'
+    ]),
     ...mapGetters('aframe', [
       'getCameraInfo'
     ]),
+    ...mapGetters('socket', [
+      'getSocketDataReceived'
+    ]),
     getCameraRotation () {
-      if (this.getCameraInfo.position) {
+      if (this.getSocketType === 'presenter' &&
+          this.getCameraInfo.position &&
+          this.getCameraInfo.rotation) {
         const rotation = this.getCameraInfo.rotation
         const position = this.getCameraInfo.position
+        if (rotation.x !== undefined &&
+            rotation.y !== undefined &&
+            rotation.z !== undefined &&
+            position.x !== undefined &&
+            position.y !== undefined &&
+            position.z !== undefined) {
+
+            return `
+              rotation:
+              x: ${rotation.x.toFixed(2)}
+              y: ${rotation.y.toFixed(2)}
+              z: ${rotation.z.toFixed(2)}
+
+              position:
+              x: ${position.x.toFixed(2)}
+              y: ${position.y.toFixed(2)}
+              z: ${position.z.toFixed(2)}
+            `
+        }
+        return 'aguardando camera...'
+      }
+
+      if (this.getSocketType === 'spectator' &&
+          this.getSocketDataReceived.position &&
+          this.getSocketDataReceived.rotation) {
+        const rotation = this.getSocketDataReceived.rotation
+        const position = this.getSocketDataReceived.position
         if (rotation.x !== undefined &&
             rotation.y !== undefined &&
             rotation.z !== undefined &&

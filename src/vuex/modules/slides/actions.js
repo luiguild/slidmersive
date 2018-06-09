@@ -20,7 +20,8 @@ const actions = {
           },
           {
             root: true
-          })
+          }
+        )
       ])
     }
   },
@@ -36,7 +37,8 @@ const actions = {
           },
           {
             root: true
-          })
+          }
+        )
       ])
     }
   },
@@ -47,8 +49,20 @@ const actions = {
     }
   },
 
-  setToggleLockSlides: ({ commit }) =>
-    commit('toggleLockSlides')
+  setToggleLockSlides: ({ commit, dispatch, getters }) => {
+    return Promise.all([
+      commit('toggleLockSlides'),
+      dispatch(
+        'socket/setSocketData',
+        {
+          lockSlides: getters.getLockSlides
+        },
+        {
+          root: true
+        }
+      )
+    ])
+  }
 }
 
 export default actions

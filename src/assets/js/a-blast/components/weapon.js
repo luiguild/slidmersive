@@ -1,4 +1,9 @@
 /* eslint-disable */
+import store from '@/vuex'
+import {
+  mapActions
+} from 'vuex'
+
 // Weapon definitions.
 var WEAPONS = {
   default: {
@@ -18,6 +23,12 @@ var WEAPONS = {
  * Tracked controls, gun model, firing animation, shooting effects.
  */
 AFRAME.registerComponent('weapon', {
+  $store: store,
+  // ...mapActions('slides', [
+  //   'setNextSlides',
+  //   'setPreviousSlides'
+  // ]),
+
   dependencies: ['shoot-controls'],
 
   schema: {
@@ -36,6 +47,8 @@ AFRAME.registerComponent('weapon', {
     }
   },
   init: function () {
+    Object.assign(this, mapActions('slides', ['setNextSlides', 'setPreviousSlides']))
+
     var el = this.el;
     var self = this;
 
@@ -93,6 +106,15 @@ AFRAME.registerComponent('weapon', {
     el.addEventListener('shoot', function (evt) {
       el.components['json-model'].playAnimation('default');
       self.light.components.light.light.intensity = self.lightIntensity;
+
+      if (el.id === 'rightHand') {
+        self.setNextSlides()
+      }
+
+      if (el.id === 'leftHand') {
+        self.setPreviousSlides()
+      }
+
       for (var i in self.fires){
         self.fires[i].visible = true;
         self.fires[i].life = 50 + Math.random() * 100;
@@ -150,4 +172,6 @@ AFRAME.registerComponent('weapon', {
   }
 });
 
-module.exports = WEAPONS;
+export {
+  WEAPONS
+}

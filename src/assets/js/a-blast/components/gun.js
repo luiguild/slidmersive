@@ -1,5 +1,5 @@
 /* eslint-disable */
-var WEAPONS = require('./weapon');
+var WEAPONS = require('./weapon').WEAPONS;
 
 /**
  * Spawn bullets on an event.

@@ -16,11 +16,7 @@ export default {
       'getLockSlides'
     ])
   },
-  watch: {
-    getLockSlides (change) {
-      console.log(this.getLockSlides)
-    }
-  }
+  watch: {}
 }
 </script>
 

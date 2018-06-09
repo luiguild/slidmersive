@@ -3,7 +3,14 @@
 const getters = {
   getSocketType: state => state.slides.socket,
   getActualSlide: state => state.slides.actual,
-  getLockSlides: state => state.slides.lock,
+  getLockSlides: (state, getters, rootGetters) => {
+    if (getters.getSocketType === 'spectator' &&
+        rootGetters.socket.socket.rx.lockSlides !== undefined) {
+      return rootGetters.socket.socket.rx.lockSlides
+    }
+
+    return state.slides.lock
+  },
   getActualSlideIndex: state => state.slides.actualIndex,
   getActualSituation: state => {
     const actualIndex = parseInt(state.slides.actualIndex)
